@@ -35,7 +35,7 @@ bool fixCat( int index ) {
     return true;
 }
 
-bool updateCatWeight( int index, float newWeight ) {
+bool updateCatWeight( int index, Weight newWeight ) {
 
     //Error check from catDatabase.c
     if ( weightValid(newWeight) ) {

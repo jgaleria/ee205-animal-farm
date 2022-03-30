@@ -59,7 +59,7 @@ bool isNameUnique( const char name[] ) {
 }
 
 //Check if weight is valid
-bool weightValid( const float weight ) {
+bool weightValid( const Weight weight ) {
     if ( weight < 0 ) {
         fprintf( stderr, "%s: The weight needs to be greater than 0\n", PROGRAM_NAME );
         return true;

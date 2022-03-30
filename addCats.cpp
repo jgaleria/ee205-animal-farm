@@ -15,7 +15,7 @@
 #include "addCats.h"
 
 
-bool addCat ( const char name[], const enum Gender gender, const enum Breed breed, bool isFixed, float weight, enum Color collar1, enum Color collar2, unsigned long long license ) {
+bool addCat ( const char name[], const enum Gender gender, const enum Breed breed, bool isFixed, Weight weight, enum Color collar1, enum Color collar2, unsigned long long license ) {
 
     //Error Checks from catDatabase.c
     if ( enoughSpace() ) {

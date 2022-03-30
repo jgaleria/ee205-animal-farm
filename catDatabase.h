@@ -18,6 +18,9 @@
 #define MAX_NAME (50)
 #define MAX_CATS (1024)
 
+//typedefs
+typedef float Weight;
+
 // extern
 extern int numberOfCats;
 
@@ -30,18 +33,18 @@ enum Color  {RED, BLUE, GREEN, WHITE, BLACK, PINK};
 struct Cat
 {
     //Name
-    char         name[MAX_NAME];
+    char          name[MAX_NAME];
     //Gender
-    enum  Gender gender;
+    enum  Gender  gender;
     //Breed
-    enum  Breed  breed;
+    enum  Breed   breed;
     //isFixed
-    bool         isFixed;
+    bool          isFixed;
     //Weight
-    float        weight;
+    Weight        weight;
     //Color
-    enum  Color  collar1;
-    enum  Color  collar2;
+    enum  Color   collar1;
+    enum  Color   collar2;
     //License
     unsigned long long license;
 };
@@ -54,6 +57,6 @@ extern bool enoughSpace();
 extern bool nameIsEmpty( const char name[] );
 extern bool nameIsOver( const char name[] );
 extern bool isNameUnique( const char name[] );
-extern bool weightValid( const float weight );
+extern bool weightValid( Weight weight );
 extern bool isValidIndex( const int index );
 
