@@ -20,9 +20,10 @@
 
 //typedefs
 typedef float Weight;
+typedef int   NumCats;
 
 // extern
-extern int numberOfCats;
+extern NumCats numberOfCats;
 
 // enums Gender, Breed, Color
 enum Gender {UNKNOWN_GENDER, MALE, FEMALE};

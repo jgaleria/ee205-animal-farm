@@ -16,7 +16,7 @@
 
 //Declare
 struct Cat Database[MAX_CATS];
-int    numberOfCats;
+NumCats    numberOfCats;
 
 //Check if there's enough space in the database
 bool enoughSpace() {
