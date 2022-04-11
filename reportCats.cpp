@@ -8,11 +8,19 @@
 /// @author Joshua Galeria <jgaleria@hawaii.edu>
 /// @date   20_Mar_2022
 ///////////////////////////////////////////////////////////////////////////////
-#include "reportCats.h"
-//Header
+
+//Include files
+#include <iostream>
+#include <stdexcept>
+#include <cstring>
+#include <cassert>
+
 #include "catDatabase.h"
-#include <stdio.h>
-#include <string.h>
+#include "reportCats.h"
+#include "programName.h"
+#include "Cat.h"
+
+using namespace std;
 
 //Make char* to print out
 //const char* genders[] = {"UNKNOWN_GENDER", "MALE", "FEMALE"};
@@ -46,6 +54,7 @@
 //    printf("\n");
 //}
 //
+
 //// Print index of catname
 //int findCat( char name[] ) {
 //    for( int indexNum = 0; indexNum < numberOfCats; indexNum++ ) {
@@ -58,3 +67,28 @@
 //    return 0;
 //
 //}
+
+//To check that gender has designated value
+const char* genderName( const enum Gender gender ) {
+    switch( gender ) {
+        case UNKNOWN_GENDER: return "Unknown" ;
+        case MALE:           return "Male"    ;
+        case FEMALE:         return "Female"  ;
+    }
+
+    throw logic_error(PROGRAM_NAME ": Gender needs to have a valid string value");
+}
+
+//To check breed has designated value
+const char* breedName( const enum Breed breed ) {
+    switch( breed ){
+        case UNKNOWN_BREED: return "Unknown"    ;
+        case MAINE_COON:    return "Maine Coon" ;
+        case MANX:          return "Manx"       ;
+        case SHORTHAIR:     return "Shorthair"  ;
+        case PERSIAN:       return "Persian"    ;
+        case SPHYNX:        return "Sphynx"     ;
+    }
+
+    throw logic_error(PROGRAM_NAME ": Breed needs to have a valid string value");
+}

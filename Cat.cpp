@@ -9,8 +9,6 @@
 /// @date   09_Apr_2022
 ///////////////////////////////////////////////////////////////////////////////
 
-#pragma once
-
 //Include
 #include <iostream>
 #include <cassert>
@@ -151,6 +149,8 @@ bool Cat::validateWeight(const Weight newWeight) {
 //Check isFixed
 bool Cat::fixCat() noexcept {
     Cat::isCatFixed = true;
+
+    return true;
 }
 
 //Setting weight
