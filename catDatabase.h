@@ -16,21 +16,21 @@
 #include "Cat.h"
 
 // Define max numbers
-#define MAX_NAME (50)
 #define MAX_CATS (1024)
-#define UNKNOWN_WEIGHT (-1)
 
 //typedefs
-typedef float Weight;
 typedef int   NumCats;
+typedef float Weight;
+
+const Weight UNKNOWN_WEIGHT = -1;
 
 // extern
 extern NumCats numberOfCats;
 
 // enums Gender, Breed, Color
-enum Gender {UNKNOWN_GENDER, MALE, FEMALE};
-enum Breed  {UNKNOWN_BREED, MAINE_COON, MANX, SHORTHAIR, PERSIAN, SPHYNX};
-enum Color  {RED, BLUE, GREEN, WHITE, BLACK, PINK};
+enum Gender {UNKNOWN_GENDER=0, MALE, FEMALE};
+enum Breed  {UNKNOWN_BREED=0, MAINE_COON, MANX, SHORTHAIR, PERSIAN, SPHYNX};
+//enum Color  {RED, BLUE, GREEN, WHITE, BLACK, PINK};
 
 
 //Head pointer
@@ -65,7 +65,7 @@ extern bool isCatInDatabase( const Cat* aCat );
 //    unsigned long long license;
 //
 //};
-//
+
 ////extern
 //extern struct Cat Database[MAX_CATS];
 

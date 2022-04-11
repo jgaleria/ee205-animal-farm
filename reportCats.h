@@ -12,11 +12,17 @@
 #include "catDatabase.h"
 #include "Cat.h"
 
-bool printCat( int index );
+//bool printCat( int index );
+//
+//void printAllCats();
+//
+//int findCat( char name[] );
 
-void printAllCats();
+//Print all cats
+extern bool printAllCats();
 
-int findCat( char name[] );
+//Find cat
+extern Cat* findCatByName( const char* name );
 
 //Return string for gender name
 extern const char* genderName( enum Gender gender );

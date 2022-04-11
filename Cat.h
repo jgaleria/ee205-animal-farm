@@ -14,6 +14,8 @@
 #include "programName.h"
 #include "catDatabase.h"
 
+#define MAX_NAME (50)
+
 class Cat {
 //protected members
 protected:

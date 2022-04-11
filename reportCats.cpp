@@ -55,6 +55,25 @@ using namespace std;
 //}
 //
 
+//Print all cats
+bool printAllCats() {
+    int numCats = 0;
+
+    assert( validateDatabase() );
+
+    for(Cat* iCat = catDatabaseHeadPointer; iCat != nullptr ; iCat = iCat->next) {
+        iCat->print();
+        numCats++;
+    }
+
+//    #ifdef DEBUG
+//        cout << "numCats = [" << numCats << "]" << endl;
+//    #endif
+
+    assert(validateDatabase());
+
+    return true;
+}
 //// Print index of catname
 //int findCat( char name[] ) {
 //    for( int indexNum = 0; indexNum < numberOfCats; indexNum++ ) {
@@ -67,6 +86,23 @@ using namespace std;
 //    return 0;
 //
 //}
+
+//Find a cat
+Cat* findCatByName( const char* name) {
+    assert( Cat().validateName(name));
+
+    // assert( validateDatabase() ) ;
+
+    for(Cat* iCat = catDatabaseHeadPointer; iCat!= nullptr; iCat = iCat-> next ) {
+        if(strcmp(name, iCat->getName()) == 0) {
+            return iCat;
+        }
+    }
+
+    // assert( validateDatabase() ) ;
+
+    return nullptr;
+}
 
 //To check that gender has designated value
 const char* genderName( const enum Gender gender ) {
