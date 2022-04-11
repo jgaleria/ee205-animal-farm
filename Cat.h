@@ -15,7 +15,9 @@
 
 #define MAX_NAME (50)
 
+//Cat class
 class Cat {
+
 //protected members
 protected:
     char        name[MAX_NAME];
@@ -84,6 +86,7 @@ public:
 
 //Static Public Methods
 public:
+    //Validation checks
     static bool validateName( const char* newName );
     static bool validateGender( const Gender newGender );
     static bool validateBreed( const Breed newBreed );

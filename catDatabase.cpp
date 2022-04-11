@@ -44,7 +44,7 @@ void initializeDatabase() {
 
 //Check to validate database
 extern bool validateDatabase() {
-    int validCats = 0;
+    int numValidCats = 0;
 
     for (Cat* iCat = catDatabaseHeadPointer; iCat != nullptr; iCat = iCat->next) {
         if( !iCat-> validate() ) {
@@ -56,12 +56,12 @@ extern bool validateDatabase() {
             cout << PROGRAM_NAME ": There was a duplicate cat name [" << iCat->getName() << "]" << endl ;
         }
 
-        validCats++;
+        numValidCats++;
     }
 
-    if (validCats != numberOfCats ) {
+    if (numValidCats != numberOfCats ) {
         cout << PROGRAM_NAME << ": The number of cats: " << numberOfCats
-            << "] does not equal [" << validCats << "]" << endl;
+            << "] does not equal [" << numValidCats << "]" << endl;
         return false;
     }
 

@@ -12,7 +12,7 @@
 #define PROGRAM_NAME "AnimalFarm1"
 
 // Define max numbers
-#define MAX_CATS (1024)
+//#define MAX_CATS (1024)
 
 //Enums Gender, Breed
 enum Gender {UNKNOWN_GENDER=0, MALE, FEMALE};
@@ -23,4 +23,5 @@ enum Breed  {UNKNOWN_BREED=0, MAINE_COON, MANX, SHORTHAIR, PERSIAN, SPHYNX};
 typedef int   NumCats;
 typedef float Weight;
 
+//Not valid weight
 const Weight UNKNOWN_WEIGHT = -1;

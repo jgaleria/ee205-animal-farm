@@ -20,6 +20,7 @@
 using namespace std;
 
 bool addCat(Cat* newCat) {
+    //Check that newCat has a value
     assert( newCat != nullptr );
     newCat->validate() ;
 
@@ -28,6 +29,7 @@ bool addCat(Cat* newCat) {
         throw logic_error(PROGRAM_NAME ": That cat already exists");
     }
 
+    //Make sure database is healthy
     assert( validateDatabase() );
 
     //Inserting cat
@@ -43,6 +45,8 @@ bool addCat(Cat* newCat) {
 
     return true;
 }
+
+//Old code
 //bool addCat ( const char name[], const enum Gender gender, const enum Breed breed, bool isFixed, Weight weight, enum Color collar1, enum Color collar2, unsigned long long license ) {
 //
 //    //Error Checks from catDatabase.c

@@ -12,12 +12,6 @@
 #include "catDatabase.h"
 #include "Cat.h"
 
-//bool printCat( int index );
-//
-//void printAllCats();
-//
-//int findCat( char name[] );
-
 //Print all cats
 extern bool printAllCats();
 
@@ -29,3 +23,9 @@ extern const char* genderName( enum Gender gender );
 
 //Return string for breed name
 extern const char* breedName( enum Breed breed );
+
+//bool printCat( int index );
+//
+//void printAllCats();
+//
+//int findCat( char name[] );

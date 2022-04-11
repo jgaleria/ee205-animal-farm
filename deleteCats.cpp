@@ -20,27 +20,12 @@
 #include "Cat.h"
 
 using namespace std;
-//Delete all cats
-//void deleteAllCats() {
-//    for( int x = 0; x < numberOfCats; x++ ) {
-//        strcpy(Database[x].name, "");
-//        Database[x].gender  = UNKNOWN_GENDER;
-//        Database[x].breed   = UNKNOWN_BREED;
-//        Database[x].isFixed = false;
-//        Database[x].weight  = 0.0;
-//        Database[x].collar1 = RED;
-//        Database[x].collar2 = RED;
-//        Database[x].license = 0;
-//    }
-//    //Couldn't get this to work
-//    //memset(Database, 0, MAX_CATS);
-//}
-//
+
 
 //Delete specific cat
 bool deleteCat( Cat* deleteThisCat ) {
+    //Check that conditions are satisfied
     assert( deleteThisCat!= nullptr );
-
     assert( validateDatabase() );
 
     //Test case. Head pointer
@@ -56,6 +41,7 @@ bool deleteCat( Cat* deleteThisCat ) {
     //Finding cat
     Cat* iCat = catDatabaseHeadPointer;
     while( iCat!= nullptr ) {
+        //Reset headpointer first to make the delete
         if( iCat->next == deleteThisCat ) {
             iCat-> next = deleteThisCat-> next;
             delete deleteThisCat;
@@ -68,26 +54,10 @@ bool deleteCat( Cat* deleteThisCat ) {
         iCat = iCat->next;
     }
 
+    //Check if database is healthy
     assert(validateDatabase());
 
     throw invalid_argument(PROGRAM_NAME ": Unable to delete the cat. It wasn't found");
-}
-
-
-//Delete all cats
-bool deleteAllCats() {
-    //Deletes until there's no cats left
-    while(catDatabaseHeadPointer != nullptr) {
-        deleteCat(catDatabaseHeadPointer);
-    }
-
-    //numCats = 0;
-
-//    #ifdef DEBUG
-//        cout << PROGRAM_NAME << ": Deleted all cats" << endl;
-//    #endif
-
-    return true;
 }
 
 ////Delete specific cat
@@ -108,4 +78,36 @@ bool deleteAllCats() {
 //    Database[index].collar2 = RED;
 //    Database[index].license = 0;
 //    return true;
+//}
+
+//Delete all cats
+bool deleteAllCats() {
+    //Deletes until there's no cats left
+    while(catDatabaseHeadPointer != nullptr) {
+        deleteCat(catDatabaseHeadPointer);
+    }
+
+    //numCats = 0;
+
+//    #ifdef DEBUG
+//        cout << PROGRAM_NAME << ": Deleted all cats" << endl;
+//    #endif
+
+    return true;
+}
+
+//Delete all cats
+//void deleteAllCats() {
+//    for( int x = 0; x < numberOfCats; x++ ) {
+//        strcpy(Database[x].name, "");
+//        Database[x].gender  = UNKNOWN_GENDER;
+//        Database[x].breed   = UNKNOWN_BREED;
+//        Database[x].isFixed = false;
+//        Database[x].weight  = 0.0;
+//        Database[x].collar1 = RED;
+//        Database[x].collar2 = RED;
+//        Database[x].license = 0;
+//    }
+//    //Couldn't get this to work
+//    //memset(Database, 0, MAX_CATS);
 //}

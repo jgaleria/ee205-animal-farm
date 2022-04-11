@@ -51,7 +51,6 @@ Cat::~Cat() {
     zeroOutMemberData();
 }
 
-//Name
 
 //Getter for name
 const char *Cat::getName() const noexcept {
@@ -107,32 +106,36 @@ bool Cat::print() const noexcept {
 
 //Validate functions
 
-//Using try catch statement.
+//Using try catch statement. Idea from Mark's source code.
 bool Cat::validate() const noexcept {
+    //Try to do this
     try {
         validateName( name );
         validateGender( gender );
         validateBreed( breed );
         validateWeight( weight );
     }
+    //If any errors, it will catch and return false
     catch (exception const& x ) {
         cout << x.what() << endl;
         return false;
     }
 
+    //If passes, return true
     return true;
 }
 
 //Check Name
 bool Cat::validateName( const char *newName ) {
-    //Check if name is empty
-    if( newName == nullptr ) {
-        throw invalid_argument( PROGRAM_NAME ": Input name must not be NULL");
-    }
 
     //Check if name length is valid
     if( strlen(newName ) <= 0 || strlen( newName) >= MAX_NAME ){
         throw length_error( PROGRAM_NAME ": Input name length is invalid");
+    }
+
+    //Check if name is empty
+    if( newName == nullptr ) {
+        throw invalid_argument( PROGRAM_NAME ": Input name must not be NULL");
     }
 
     return true;
@@ -177,20 +180,24 @@ void Cat::setWeight(Weight newWeight) {
 
 //Setting gender
 void Cat::setGender(Gender newGender) {
+    // Can't change male or female
     if( gender != UNKNOWN_GENDER ){
         throw logic_error(PROGRAM_NAME ": You are unable to change the gender");
     }
 
+    //Validate
     validateGender( newGender );
     Cat::gender = newGender;
 }
 
 //Setting breed
 void Cat::setBreed(Breed newBreed) {
+    //Can't change the breed of a cat
     if( breed!= UNKNOWN_BREED ) {
         throw logic_error( PROGRAM_NAME ": You are unable to change the breed");
     }
 
+    //Validate
     validateBreed( newBreed );
     Cat::breed = newBreed;
 }
