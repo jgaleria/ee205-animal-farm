@@ -17,15 +17,15 @@
 class Cat {
 //protected members
 protected:
-    char name[MAX_NAME];
+    char        name[MAX_NAME];
     enum Gender gender;
-    enum Breed breed;
-    bool isCatFixed;
-    Weight weight;
+    enum Breed  breed;
+    bool        isCatFixed;
+    Weight      weight;
 
 //Public members
 public:
-    Cat* next;
+    Cat*        next;
 
 //Private methods
 private:
@@ -37,26 +37,53 @@ public:
     Cat();
 
     //Create cat with all the fields
-
+    Cat( const char *newName, const Gender newGender, const Breed newBreed, const Weight newWeight );
     //Zero out member data
+    virtual ~Cat();
 
 //Getters and Setters - Public
 public:
-//For name
+    //For name
+    const char *getName() const noexcept;
+    void setName ( const char* newName );
 
-//For gender
+    //For gender
+    Gender getGender() const noexcept;
 
-//For breed
+    //For breed
+    Breed getBreed() const noexcept;
 
-//For weight
+    //For fixed
+    bool isFixed() const noexcept;
+    void fixCat() noexcept;
+
+    //For weight
+    Weight getWeight() const noexcept;
+    void setWeight(Weight newWeight);
 
 //Protected methods
 protected:
 public:
+    //Set gender
+    void setGender(Gender newGender);
 
+    //Set breed
+    void setBreed
 
+//Public methods
+public:
+    //Print cat
+    bool print() const noexcept;
 
-
-
+    //Validate cat
+//    bool validate() const noexcept;
+//
+////Static Public Methods
+//public:
+//    static bool validateName( const char* newName );
+//    static bool validateGender( const Gender newGender );
+//    static bool validateBreed( const Breed newBreed );
+//    static bool validateWeight( const Weight newWeight );
+//
 };
 
