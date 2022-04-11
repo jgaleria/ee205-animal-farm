@@ -10,28 +10,12 @@
 ///////////////////////////////////////////////////////////////////////////////
 #pragma once
 
-//Header
-#include <stdio.h>
-#include <stdbool.h>
+//Include
+#include <cstddef>
 #include "Cat.h"
-
-// Define max numbers
-#define MAX_CATS (1024)
-
-//typedefs
-typedef int   NumCats;
-typedef float Weight;
-
-const Weight UNKNOWN_WEIGHT = -1;
 
 // extern
 extern NumCats numberOfCats;
-
-// enums Gender, Breed, Color
-enum Gender {UNKNOWN_GENDER=0, MALE, FEMALE};
-enum Breed  {UNKNOWN_BREED=0, MAINE_COON, MANX, SHORTHAIR, PERSIAN, SPHYNX};
-//enum Color  {RED, BLUE, GREEN, WHITE, BLACK, PINK};
-
 
 //Head pointer
 extern Cat* catDatabaseHeadPointer;

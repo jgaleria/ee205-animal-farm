@@ -86,6 +86,8 @@ bool deleteAllCats() {
 //    #ifdef DEBUG
 //        cout << PROGRAM_NAME << ": Deleted all cats" << endl;
 //    #endif
+
+    return true;
 }
 
 ////Delete specific cat

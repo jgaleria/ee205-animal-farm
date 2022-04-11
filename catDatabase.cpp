@@ -60,7 +60,7 @@ extern bool validateDatabase() {
 
         Cat* foundCat = findCatByName( iCat-> getName() );
         if( foundCat != iCat ) {
-            cout << PROGRAM_NAME ": There was a duplicate cat name [" << iCat-getName() << "]" << endl ;
+            cout << PROGRAM_NAME ": There was a duplicate cat name [" << iCat->getName() << "]" << endl ;
         }
 
         validCats++;
@@ -75,6 +75,8 @@ extern bool validateDatabase() {
 //    #ifdef DEBUG
 //        cout << PROGRAM_NAME << "The database is valid." << endl;
 //    #endif
+
+    return true;
 }
 
 //Check if there's a cat in the database
