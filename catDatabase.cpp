@@ -14,9 +14,43 @@
 #include <stdio.h>
 #include "programName.h"
 
-//Declare
+//Include
+#include <iostream>
+#include <cassert>
+#include <stdexcept>
+
+#include "programName.h"
+#include "catDatabase.h"
+#include "Cat.h"
+#include "reportCats.h"
+
+using namespace std;
+
+//Declare what we're going to need
 //struct Cat Database[MAX_CATS];
 //NumCats    numberOfCats;
+
+//Head pointer
+Cat* catDatabaseHeadPointer = nullptr;
+int numberOfCats = 0;
+
+//Initizaling database
+void initializeDatabase() {
+    //Check if there's existing database
+    if(catDatabaseHeadPointer != nullptr ) {
+        throw logic_error(PROGRAM_NAME ": You need to delete the old database");
+    }
+
+    //Validate database
+    assert( validateDatabase());
+
+//    #ifdef DEBUG
+//        cout << PROGRAM_NAME << ": Database initialized" << endl;
+//    #endif
+}
+
+//Check if there's a cat in the database
+
 //
 ////Check if there's enough space in the database
 //bool enoughSpace() {
@@ -75,3 +109,5 @@
 //    }
 //    return false;
 //}
+
+

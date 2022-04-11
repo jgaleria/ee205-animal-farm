@@ -38,7 +38,7 @@ Cat::Cat() {
 }
 
 //Constructor with all fields valid for cat
-Cat::Cat(const char *newName, const Gender newGender, const Breed newBreed, const Weight newWeight) : Cat() {
+__attribute__((unused)) Cat::Cat(const char *newName, const Gender newGender, const Breed newBreed, const Weight newWeight) : Cat() {
     setName( newName );
     setGender( newGender );
     setBreed( newBreed );

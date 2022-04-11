@@ -80,9 +80,9 @@ public:
 
     //Validate cat
     bool validate() const noexcept;
-//
-////Static Public Methods
-//public:
+
+//Static Public Methods
+public:
     static bool validateName( const char* newName );
     static bool validateGender( const Gender newGender );
     static bool validateBreed( const Breed newBreed );
