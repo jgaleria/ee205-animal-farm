@@ -11,7 +11,52 @@
 
 #pragma once
 
+#include "programName.h"
+#include "catDatabase.h"
+
 class Cat {
+//protected members
+protected:
+    char name[MAX_NAME];
+    enum Gender gender;
+    enum Breed breed;
+    bool isCatFixed;
+    Weight weight;
+
+//Public members
+public:
+    Cat* next;
+
+//Private methods
+private:
+    void zeroOutMemberData();
+
+//Constructors
+public:
+    //Create cat with default values
+    Cat();
+
+    //Create cat with all the fields
+
+    //Zero out member data
+
+//Getters and Setters - Public
+public:
+//For name
+
+//For gender
+
+//For breed
+
+//For weight
+
+//Protected methods
+protected:
+public:
+
+
+
+
 
 };
 

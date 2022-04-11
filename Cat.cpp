@@ -40,7 +40,7 @@ Cat::Cat() {
 }
 
 //Constructor with all fields valid for cat
-Cat(const char *newName, const Gender newGender, const Breed newBreed, const Weight newWeight) : Cat() {
+Cat::Cat(const char *newName, const Gender newGender, const Breed newBreed, const Weight newWeight) : Cat() {
     setName( newName );
     setGender( newGender );
     setBreed( newBreed );
@@ -53,3 +53,9 @@ Cat::~Cat() {
     zeroOutMemberData();
 }
 
+//Name
+
+//Getter
+const char *Cat::getName() const noexcept {
+    return name;
+}
