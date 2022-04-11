@@ -11,6 +11,9 @@
 
 #pragma once
 #include "catDatabase.h"
+#include "Cat.h"
 
-bool addCat ( const char name[], const enum Gender gender, const enum Breed breed, bool isFixed, Weight weight, enum Color collar1, enum Color collar2, unsigned long long license );
+//bool addCat ( const char name[], const enum Gender gender, const enum Breed breed, bool isFixed, Weight weight, enum Color collar1, enum Color collar2, unsigned long long license );
 
+//Insert cat
+extern bool addCat( Cat* newCat );

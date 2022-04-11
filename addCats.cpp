@@ -9,12 +9,40 @@
 /// @date   20_Mar_2022
 ///////////////////////////////////////////////////////////////////////////////
 
+//Include
+#include <cassert>
+#include <iostream>
+
 #include "catDatabase.h"
-#include <stdio.h>
-#include <string.h>
 #include "addCats.h"
+#include "programName.h"
 
+using namespace std;
 
+bool addCat(Cat* newCat) {
+    assert( newCat != nullptr );
+    newCat->validate() ;
+
+    //Error check
+    if (isCatInDatabase( newCat )) {
+        throw logic_error(PROGRAM_NAME ": That cat already exists");
+    }
+
+    assert( validateDatabase() );
+
+    //Inserting cat
+    newCat->next = catDatabaseHeadPointer;
+    catDatabaseHeadPointer = newCat;
+    numberOfCats++;
+
+    assert( validateDatabase());
+
+    //#ifdef DEBUG
+    //    cout << PROGRAM_NAME << ": Added cat [" << newCat->getName() << "]" << endl;
+    //#endif
+
+    return true;
+}
 //bool addCat ( const char name[], const enum Gender gender, const enum Breed breed, bool isFixed, Weight weight, enum Color collar1, enum Color collar2, unsigned long long license ) {
 //
 //    //Error Checks from catDatabase.c
@@ -55,3 +83,4 @@
 //    return true;
 //
 //}
+
