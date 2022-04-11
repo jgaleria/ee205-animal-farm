@@ -38,6 +38,7 @@ public:
 
     //Create cat with all the fields
     Cat( const char *newName, const Gender newGender, const Breed newBreed, const Weight newWeight );
+
     //Zero out member data
     virtual ~Cat();
 
@@ -55,7 +56,7 @@ public:
 
     //For fixed
     bool isFixed() const noexcept;
-    void fixCat() noexcept;
+    bool fixCat() noexcept;
 
     //For weight
     Weight getWeight() const noexcept;
@@ -68,22 +69,24 @@ public:
     void setGender(Gender newGender);
 
     //Set breed
-    void setBreed
+    void setBreed(Breed newBreed);
 
 //Public methods
 public:
     //Print cat
     bool print() const noexcept;
 
+    void setIsCatFixed(bool isCatFixed);
+
     //Validate cat
-//    bool validate() const noexcept;
+    bool validate() const noexcept;
 //
 ////Static Public Methods
 //public:
-//    static bool validateName( const char* newName );
-//    static bool validateGender( const Gender newGender );
-//    static bool validateBreed( const Breed newBreed );
-//    static bool validateWeight( const Weight newWeight );
-//
+    static bool validateName( const char* newName );
+    static bool validateGender( const Gender newGender );
+    static bool validateBreed( const Breed newBreed );
+    static bool validateWeight( const Weight newWeight );
+
 };
 

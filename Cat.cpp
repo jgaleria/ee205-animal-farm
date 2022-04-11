@@ -46,7 +46,7 @@ Cat::Cat(const char *newName, const Gender newGender, const Breed newBreed, cons
     setBreed( newBreed );
     setWeight( newWeight );
 
-    //assert(validate());
+    assert(validate());
 }
 
 Cat::~Cat() {
@@ -55,7 +55,127 @@ Cat::~Cat() {
 
 //Name
 
-//Getter
+//Getter for name
 const char *Cat::getName() const noexcept {
     return name;
 }
+
+//Setter for name
+void Cat::setName( const char *newName) {
+    //validateName( newName );
+    memset( name, 0, MAX_NAME );
+    strcpy( name, newName );
+}
+
+//Getter for gender
+Gender Cat::getGender() const noexcept {
+    return gender;
+}
+
+//Getter for breed
+Breed Cat::getBreed() const noexcept {
+    return breed;
+}
+
+//Get isFixed
+bool Cat::isFixed() const noexcept {
+    return isCatFixed;
+}
+
+//Get weight
+Weight Cat::getWeight() const noexcept {
+    return weight;
+}
+
+//Format line for printing out class
+#define FORMAT_LINE( className, member ) cout << setw(8) << (className) << setw(20) << (member) << setw(52)
+
+//Returning and printing Cat
+bool Cat::print() const noexcept {
+    assert( validate() );
+
+    cout << setw(80) << setfill( '=' ) << "" << endl;
+    cout << setfill( ' ' );
+    cout << left ;
+    cout << boolalpha;
+    FORMAT_LINE( "Cat", "name" )        << getName()   << endl;
+    FORMAT_LINE( "Cat", "gender" )      << genderName( getGender() ) << endl;
+    FORMAT_LINE( "Cat", "breed" )       << breedName( getBreed() )   << endl;
+    FORMAT_LINE( "Cat", "isFixed" )     << isFixed()   << endl;
+    FORMAT_LINE( "Cat", "weight" )      << getWeight() << endl;
+
+    return true;
+}
+
+//Validate functions
+
+//Check Name
+bool Cat::validateName( const char *newName ) {
+    //Check if name is empty
+    if( newName == nullptr ) {
+        throw invalid_argument( PROGRAM_NAME ": Input name must not be NULL");
+    }
+
+    //Check if name length is valid
+    if( strlen(newName ) <= 0 || strlen( newName) >= MAX_NAME ){
+        throw length_error( PROGRAM_NAME ": Input name length is invalid");
+    }
+
+    return true;
+}
+
+//Check Gender
+bool Cat::validateGender(const Gender newGender ) {
+    if( newGender == UNKNOWN_GENDER ) {
+        throw invalid_argument( PROGRAM_NAME ": Gender must be known");
+    }
+    return true;
+}
+
+//Check Breed
+bool Cat::validateBreed(const Breed newBreed) {
+    if( newBreed == UNKNOWN_BREED ) {
+        throw invalid_argument(PROGRAM_NAME ": Breed must be known");
+    }
+    return true;
+}
+
+//Check weight
+bool Cat::validateWeight(const Weight newWeight) {
+    if( newWeight <= 0 ){
+        throw invalid_argument(PROGRAM_NAME ": Weight must be > 0");
+    }
+    return true;
+}
+
+//Check isFixed
+bool Cat::fixCat() noexcept {
+    Cat::isCatFixed = true;
+}
+
+//Setting weight
+void Cat::setWeight(Weight newWeight) {
+    validateWeight( newWeight );
+    Cat::weight = newWeight;
+}
+
+//Setting gender
+void Cat::setGender(Gender newGender) {
+    if( gender != UNKNOWN_GENDER ){
+        throw logic_error(PROGRAM_NAME ": You are unable to change the gender");
+    }
+
+    validateGender( newGender );
+    Cat::gender = newGender;
+}
+
+//Setting breed
+void Cat::setBreed(Breed newBreed) {
+    if( breed!= UNKNOWN_BREED ) {
+        throw logic_error( PROGRAM_NAME ": You are unable to change the breed");
+    }
+
+    validateBreed( newBreed );
+    Cat::breed = newBreed;
+}
+
