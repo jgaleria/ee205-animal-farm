@@ -32,7 +32,7 @@ using namespace std;
 
 //Head pointer
 Cat* catDatabaseHeadPointer = nullptr;
-int numberOfCats = 0;
+NumCats numberOfCats = 0;
 
 //Initizaling database
 void initializeDatabase() {
@@ -49,9 +49,55 @@ void initializeDatabase() {
 //    #endif
 }
 
-//Check if there's a cat in the database
+//Check to validate database
+extern bool validateDatabase() {
+    int validCats = 0;
 
-//
+    for (Cat* iCat = catDatabaseHeadPointer; iCat != nullptr; iCat = iCat->next) {
+        if( !iCat-> validate() ) {
+            return false;
+        }
+
+        Cat* foundCat = findCatByName( iCat-> getName() );
+        if( foundCat != iCat ) {
+            cout << PROGRAM_NAME ": There was a duplicate cat name [" << iCat-getName() << "]" << endl ;
+        }
+
+        validCats++;
+    }
+
+    if (validCats != numberOfCats ) {
+        cout << PROGRAM_NAME << ": The number of cats: " << numberOfCats
+            << "] does not equal [" << validCats << "]" << endl;
+        return false;
+    }
+
+//    #ifdef DEBUG
+//        cout << PROGRAM_NAME << "The database is valid." << endl;
+//    #endif
+}
+
+//Check if there's a cat in the database
+bool isCatInDatabase( const Cat* aCat ) {
+    assert ( aCat != nullptr );
+
+    assert( validateDatabase() );
+
+    //Check to find the cat
+    for(Cat* iCat = catDatabaseHeadPointer; iCat != nullptr; iCat = iCat->next ){
+        if(iCat == aCat) {
+            return true;
+        }
+    }
+
+    assert ( validateDatabase() );
+
+    return false;
+}
+
+
+
+// Old validate checks
 ////Check if there's enough space in the database
 //bool enoughSpace() {
 //    if ( numberOfCats > MAX_CATS ) {

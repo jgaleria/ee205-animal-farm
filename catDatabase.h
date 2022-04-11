@@ -13,6 +13,7 @@
 //Header
 #include <stdio.h>
 #include <stdbool.h>
+#include "Cat.h"
 
 // Define max numbers
 #define MAX_NAME (50)
@@ -30,7 +31,20 @@ extern NumCats numberOfCats;
 enum Gender {UNKNOWN_GENDER, MALE, FEMALE};
 enum Breed  {UNKNOWN_BREED, MAINE_COON, MANX, SHORTHAIR, PERSIAN, SPHYNX};
 enum Color  {RED, BLUE, GREEN, WHITE, BLACK, PINK};
-//
+
+
+//Head pointer
+extern Cat* catDatabaseHeadPointer;
+
+//Initialize cat database
+extern void initializeDatabase();
+
+//Validate database
+extern bool validateDatabase();
+
+//Check if cat is in database
+extern bool isCatInDatabase( const Cat* aCat );
+
 //// Array of structs
 //struct Cat
 //{
@@ -54,6 +68,7 @@ enum Color  {RED, BLUE, GREEN, WHITE, BLACK, PINK};
 //
 ////extern
 //extern struct Cat Database[MAX_CATS];
+
 //
 ////checks
 //extern bool enoughSpace();
