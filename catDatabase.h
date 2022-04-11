@@ -17,6 +17,7 @@
 // Define max numbers
 #define MAX_NAME (50)
 #define MAX_CATS (1024)
+#define UNKNOWN_WEIGHT (-1)
 
 //typedefs
 typedef float Weight;
