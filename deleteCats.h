@@ -9,8 +9,16 @@
 /// @date   20_Mar_2022
 ///////////////////////////////////////////////////////////////////////////////
 #pragma once
-#include "catDatabase.h"
+#include "Cat.h"
 
-void deleteAllCats();
+//void deleteAllCats();
+//
+//bool deleteCat( int index );
 
-bool deleteCat( int index );
+//Delete specific cat
+extern bool deleteCat( Cat* deleteThisCat );
+
+//Delete all cats
+extern bool deleteAllCats();
+
+

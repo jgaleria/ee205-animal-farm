@@ -9,12 +9,17 @@
 /// @date   20_Mar_2022
 ///////////////////////////////////////////////////////////////////////////////
 
-//Headers
-#include "catDatabase.h"
-#include "deleteCats.h"
-#include <stdio.h>
-#include <string.h>
+//Include
+#include <iostream>
+#include <stdexcept>
+#include <cassert>
 
+#include "programName.h"
+#include "deleteCats.h"
+#include "catDatabase.h"
+#include "Cat.h"
+
+using namespace std;
 //Delete all cats
 //void deleteAllCats() {
 //    for( int x = 0; x < numberOfCats; x++ ) {
@@ -31,6 +36,58 @@
 //    //memset(Database, 0, MAX_CATS);
 //}
 //
+
+//Delete specific cat
+bool deleteCat( Cat* deleteThisCat ) {
+    assert( deleteThisCat!= nullptr );
+
+    assert( validateDatabase() );
+
+    //Test case. Head pointer
+    if(deleteThisCat == catDatabaseHeadPointer ) {
+        catDatabaseHeadPointer = catDatabaseHeadPointer->next;
+        delete deleteThisCat;
+        numberOfCats--;
+
+        assert (validateDatabase());
+        return true;
+    }
+
+    //Finding cat
+    Cat* iCat = catDatabaseHeadPointer;
+    while( iCat!= nullptr ) {
+        if( iCat->next == deleteThisCat ) {
+            iCat-> next = deleteThisCat-> next;
+            delete deleteThisCat;
+            numberOfCats--;
+
+            assert(validateDatabase());
+
+            return true;
+        }
+        iCat = iCat->next;
+    }
+
+    assert(validateDatabase());
+
+    throw invalid_argument(PROGRAM_NAME ": Unable to delete the cat. It wasn't found");
+}
+
+
+//Delete all cats
+bool deleteAllCats() {
+    //Deletes until there's no cats left
+    while(catDatabaseHeadPointer != nullptr) {
+        deleteCat(catDatabaseHeadPointer);
+    }
+
+    //numCats = 0;
+
+//    #ifdef DEBUG
+//        cout << PROGRAM_NAME << ": Deleted all cats" << endl;
+//    #endif
+}
+
 ////Delete specific cat
 //bool deleteCat( int index ) {
 //

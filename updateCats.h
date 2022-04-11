@@ -11,14 +11,14 @@
 #pragma once
 #include "catDatabase.h"
 
-bool updateCatName( int index, char newName[] );
-
-bool fixCat( int index );
-
-bool updateCatWeight( int index, Weight newWeight );
-
-bool updateCollar1 ( int index, enum Color newColor );
-
-bool updateCollar2 ( int index, enum Color newColor );
-
-bool updateLicense ( int index, unsigned long long newLicense );
+//bool updateCatName( int index, char newName[] );
+//
+//bool fixCat( int index );
+//
+//bool updateCatWeight( int index, Weight newWeight );
+//
+//bool updateCollar1 ( int index, enum Color newColor );
+//
+//bool updateCollar2 ( int index, enum Color newColor );
+//
+//bool updateLicense ( int index, unsigned long long newLicense );
