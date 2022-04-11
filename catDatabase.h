@@ -14,11 +14,11 @@
 #include <cstddef>
 #include "Cat.h"
 
-// extern
-extern NumCats numberOfCats;
-
 //Head pointer
 extern Cat* catDatabaseHeadPointer;
+
+// extern
+extern NumCats numberOfCats;
 
 //Initialize cat database
 extern void initializeDatabase();

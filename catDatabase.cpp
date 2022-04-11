@@ -8,19 +8,12 @@
 /// @author Joshua Galeria <jgaleria@hawaii.edu>
 /// @date   20_Mar_2022
 ///////////////////////////////////////////////////////////////////////////////
-//Header
-#include <string.h>
-#include "catDatabase.h"
-#include <stdio.h>
-#include "programName.h"
 
 //Include
 #include <iostream>
 #include <cassert>
 #include <stdexcept>
 
-#include "programName.h"
-#include "catDatabase.h"
 #include "Cat.h"
 #include "reportCats.h"
 

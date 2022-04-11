@@ -12,7 +12,6 @@
 #pragma once
 
 #include "programName.h"
-#include "catDatabase.h"
 
 #define MAX_NAME (50)
 

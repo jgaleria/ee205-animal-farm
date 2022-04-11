@@ -107,6 +107,22 @@ bool Cat::print() const noexcept {
 
 //Validate functions
 
+//Using try catch statement.
+bool Cat::validate() const noexcept {
+    try {
+        validateName( name );
+        validateGender( gender );
+        validateBreed( breed );
+        validateWeight( weight );
+    }
+    catch (exception const& x ) {
+        cout << x.what() << endl;
+        return false;
+    }
+
+    return true;
+}
+
 //Check Name
 bool Cat::validateName( const char *newName ) {
     //Check if name is empty
