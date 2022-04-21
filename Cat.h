@@ -13,6 +13,7 @@
 
 #include "programName.h"
 #include "Gender.h"
+#include "Color.h"
 
 #define MAX_NAME (50)
 
@@ -24,6 +25,7 @@ protected:
     char        name[MAX_NAME];
     enum Gender gender;
     enum Breed  breed;
+    enum Color  color;
     bool        isCatFixed;
     Weight      weight;
 
@@ -41,7 +43,7 @@ public:
     Cat();
 
     //Create cat with all the fields
-    Cat( const char *newName, const Gender newGender, const Breed newBreed, const Weight newWeight );
+    Cat( const char *newName, const Gender newGender, const Breed newBreed, const Color newColor, const Weight newWeight );
 
     //Zero out member data
     virtual ~Cat();
@@ -57,6 +59,9 @@ public:
 
     //For breed
     Breed getBreed() const noexcept;
+
+    //For color
+    Color getColor() const noexcept;
 
     //For fixed
     bool isFixed() const noexcept;
@@ -75,6 +80,9 @@ public:
     //Set breed
     void setBreed(Breed newBreed);
 
+    //Set color
+    void setColor(Color newColor);
+
 //Public methods
 public:
     //Print cat
@@ -92,6 +100,7 @@ public:
     static bool validateGender( const Gender newGender );
     static bool validateBreed( const Breed newBreed );
     static bool validateWeight( const Weight newWeight );
+    static bool validateColor( const Color newColor );
 
 };
 

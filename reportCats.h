@@ -19,11 +19,13 @@ extern bool printAllCats();
 extern Cat* findCatByName( const char* name );
 
 //Return string for gender name
-extern const char* genderName( enum Gender gender );
+extern const char* genderName( Gender gender );
 
 //Return string for breed name
 extern const char* breedName( enum Breed breed );
 
+//Return string for color name
+extern const char* colorName( Color color );
 //bool printCat( int index );
 //
 //void printAllCats();

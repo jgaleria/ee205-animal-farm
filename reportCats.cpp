@@ -115,3 +115,22 @@ const char* breedName( const enum Breed breed ) {
     throw logic_error(PROGRAM_NAME ": Breed needs to have a valid string value");
 }
 
+//To check breed has designated value
+const char* colorName( Color color ) {
+    switch( color ){
+        case Color::UNKNOWN_COLOR: return "Unknown"    ;
+        case Color::BLACK:    return "Unknown"    ;
+        case Color::BROWN:    return "Unknown"    ;
+        case Color::WHITE:    return "Unknown"    ;
+        case Color::RED:      return "Unknown"    ;
+        case Color::BLUE:     return "Unknown"    ;
+        case Color::GREEN:    return "Unknown"    ;
+        case Color::GINGER:   return "Unknown"    ;
+        case Color::CREAM:    return "Unknown"    ;
+        case Color::CINNAMON: return "Unknown"    ;
+        case Color::CALICO:   return "Unknown"    ;
+
+    }
+
+    throw logic_error(PROGRAM_NAME ": Breed needs to have a valid string value");
+}

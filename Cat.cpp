@@ -19,6 +19,7 @@
 #include "Cat.h"
 #include "reportCats.h"
 
+
 using namespace std;
 
 //Protected Members of a Cat
@@ -26,6 +27,7 @@ void Cat::zeroOutMemberData() {
     memset( name, 0, MAX_NAME );
     gender =  Gender::UNKNOWN_GENDER ;
     breed  =  UNKNOWN_BREED  ;
+    color  =  Color::UNKNOWN_COLOR ;
     isCatFixed = false ;
     weight = UNKNOWN_WEIGHT ;
     next = nullptr ; //Public Member
@@ -38,9 +40,10 @@ Cat::Cat() {
 }
 
 //Constructor with all fields valid for cat
-Cat::Cat(const char *newName, const Gender newGender, const Breed newBreed, const Weight newWeight) : Cat() {
+Cat::Cat(const char *newName, const Gender newGender, const Breed newBreed, const Color newColor, const Weight newWeight) : Cat() {
     setName( newName );
     setGender( newGender );
+    setColor( newColor );
     setBreed( newBreed );
     setWeight( newWeight );
 
@@ -74,6 +77,11 @@ Breed Cat::getBreed() const noexcept {
     return breed;
 }
 
+//Getter for color
+Color Cat::getColor() const noexcept {
+    return color;
+}
+
 //Get isFixed
 bool Cat::isFixed() const noexcept {
     return isCatFixed;
@@ -98,6 +106,7 @@ bool Cat::print() const noexcept {
     FORMAT_LINE( "Cat", "name" )        << getName()   << endl;
     FORMAT_LINE( "Cat", "gender" )      << genderName( getGender() ) << endl;
     FORMAT_LINE( "Cat", "breed" )       << breedName( getBreed() )   << endl;
+    FORMAT_LINE( "Cat", "color" )       << colorName( getColor() )   << endl;
     FORMAT_LINE( "Cat", "isFixed" )     << isFixed()   << endl;
     FORMAT_LINE( "Cat", "weight" )      << getWeight() << endl;
 
@@ -157,6 +166,14 @@ bool Cat::validateBreed(const Breed newBreed) {
     return true;
 }
 
+//Check Color
+bool Cat::validateColor(const Color newColor) {
+    if( newColor == Color::UNKNOWN_COLOR ) {
+        throw invalid_argument(PROGRAM_NAME ": Color must be known");
+    }
+    return true;
+}
+
 //Check weight
 bool Cat::validateWeight(const Weight newWeight) {
     if( newWeight <= 0 ){
@@ -200,5 +217,17 @@ void Cat::setBreed(Breed newBreed) {
     //Validate
     validateBreed( newBreed );
     Cat::breed = newBreed;
+}
+
+//Setting color
+void Cat::setColor(Color newColor) {
+    //Can't change the color of a cat
+    if( color!= Color::UNKNOWN_COLOR ) {
+        throw logic_error( PROGRAM_NAME ": You are unable to change the color");
+    }
+
+    //Validate
+    validateColor( newColor );
+    Cat::color = newColor;
 }
 

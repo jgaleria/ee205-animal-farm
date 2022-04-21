@@ -109,6 +109,8 @@
 #include "addCats.h"
 #include "reportCats.h"
 #include "deleteCats.h"
+#include "Color.h"
+#include "Gender.h"
 
 using namespace std ;
 
@@ -195,18 +197,18 @@ int main() {
 #endif
 
     bool result ;
-    result = addCat( new Cat( "Loki", Gender::MALE, PERSIAN, 1.0 )) ;
+    result = addCat( new Cat( "Loki", Gender::MALE, PERSIAN, Color::GINGER, 1.0 )) ;
     assert( result ) ;
     if( !result ) throw logic_error (PROGRAM_NAME ": addCat() failed" ) ;
-    result = addCat( new Cat( "Milo", Gender::MALE, MANX , 1.1 )) ;
+    result = addCat( new Cat( "Milo", Gender::MALE, MANX , Color::BLACK, 1.1 )) ;
     assert( result ) ;
-    result = addCat( new Cat( "Bella", Gender::FEMALE, MAINE_COON, 1.2 )) ;
+    result = addCat( new Cat( "Bella", Gender::FEMALE, MAINE_COON, Color::BROWN, 1.2 )) ;
     assert( result ) ;
-    result = addCat( new Cat( "Kali", Gender::FEMALE, SHORTHAIR, 1.3 )) ;
+    result = addCat( new Cat( "Kali", Gender::FEMALE, SHORTHAIR, Color::RED, 1.3 )) ;
     assert( result ) ;
-    result = addCat( new Cat( "Trin", Gender::FEMALE, MANX, 1.4 )) ;
+    result = addCat( new Cat( "Trin", Gender::FEMALE, MANX, Color::GREEN, 1.4 )) ;
     assert( result ) ;
-    result = addCat( new Cat( "Chili", Gender::MALE, SHORTHAIR, 1.5 )) ;
+    result = addCat( new Cat( "Chili", Gender::MALE, SHORTHAIR, Color::BLUE, 1.5 )) ;
     assert( result ) ;
 
 #ifdef DEBUG
