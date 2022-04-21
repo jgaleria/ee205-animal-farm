@@ -15,7 +15,7 @@
 //#define MAX_CATS (1024)
 
 //Enums Gender, Breed
-enum Gender {UNKNOWN_GENDER=0, MALE, FEMALE};
+//enum Gender {UNKNOWN_GENDER=0, MALE, FEMALE};
 enum Breed  {UNKNOWN_BREED=0, MAINE_COON, MANX, SHORTHAIR, PERSIAN, SPHYNX};
 //enum Color  {RED, BLUE, GREEN, WHITE, BLACK, PINK};
 

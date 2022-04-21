@@ -12,6 +12,7 @@
 #pragma once
 
 #include "programName.h"
+#include "Gender.h"
 
 #define MAX_NAME (50)
 
