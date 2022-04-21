@@ -18,6 +18,7 @@
 
 #include "Cat.h"
 #include "reportCats.h"
+#include "Weight.h"
 
 
 using namespace std;
@@ -29,7 +30,7 @@ void Cat::zeroOutMemberData() {
     breed  =  UNKNOWN_BREED  ;
     color  =  Color::UNKNOWN_COLOR ;
     isCatFixed = false ;
-    weight = UNKNOWN_WEIGHT ;
+    weight =  Weight::UNKNOWN_WEIGHT ;
     next = nullptr ; //Public Member
 }
 
@@ -108,7 +109,7 @@ bool Cat::print() const noexcept {
     FORMAT_LINE( "Cat", "breed" )       << breedName( getBreed() )   << endl;
     FORMAT_LINE( "Cat", "color" )       << colorName( getColor() )   << endl;
     FORMAT_LINE( "Cat", "isFixed" )     << isFixed()   << endl;
-    FORMAT_LINE( "Cat", "weight" )      << getWeight() << endl;
+    //FORMAT_LINE( "Cat", "weight" )      << getWeight() << endl;
 
     return true;
 }
@@ -175,8 +176,8 @@ bool Cat::validateColor(const Color newColor) {
 }
 
 //Check weight
-bool Cat::validateWeight(const Weight newWeight) {
-    if( newWeight <= 0 ){
+bool Cat::validateWeight(Weight newWeight) {
+    if( isWeightValid(newWeight) ){
         throw invalid_argument(PROGRAM_NAME ": Weight must be > 0");
     }
     return true;
@@ -229,5 +230,9 @@ void Cat::setColor(Color newColor) {
     //Validate
     validateColor( newColor );
     Cat::color = newColor;
+}
+
+bool Cat::isWeightValid(Weight weight) {
+    return false;
 }
 

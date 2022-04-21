@@ -67,6 +67,8 @@ public:
 
 public:
     //Overrides
+//    bool operator<<(std::ostream& lhs_stream
+//            ,const Weight::UnitOfWeight rhs_UnitOfWeight);
     bool operator==(const Weight &rhs_Weight) const;
     bool operator<(const Weight &rhs_Weight) const;
     Weight & operator+=(float rhs_addToWeight);

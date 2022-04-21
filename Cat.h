@@ -14,6 +14,7 @@
 #include "programName.h"
 #include "Gender.h"
 #include "Color.h"
+#include "Weight.h"
 
 #define MAX_NAME (50)
 
@@ -102,5 +103,6 @@ public:
     static bool validateWeight( const Weight newWeight );
     static bool validateColor( const Color newColor );
 
+    static bool isWeightValid(Weight weight);
 };
 

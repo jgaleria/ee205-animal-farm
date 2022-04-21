@@ -21,7 +21,7 @@ enum Breed  {UNKNOWN_BREED=0, MAINE_COON, MANX, SHORTHAIR, PERSIAN, SPHYNX};
 
 //typedefs
 typedef int   NumCats;
-typedef float Weight;
+//typedef float Weight;
 
 //Not valid weight
-const Weight UNKNOWN_WEIGHT = -1;
+//const Weight UNKNOWN_WEIGHT = -1;
