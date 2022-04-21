@@ -91,11 +91,11 @@ Cat* findCatByName( const char* name) {
 }
 
 //To check that gender has designated value
-const char* genderName( const enum Gender gender ) {
+const char* genderName( const Gender gender ) {
     switch( gender ) {
-        case UNKNOWN_GENDER: return "Unknown" ;
-        case MALE:           return "Male"    ;
-        case FEMALE:         return "Female"  ;
+        case Gender::UNKNOWN_GENDER: return "Unknown" ;
+        case Gender::MALE:           return "Male"    ;
+        case Gender::FEMALE:         return "Female"  ;
     }
 
     throw logic_error(PROGRAM_NAME ": Gender needs to have a valid string value");

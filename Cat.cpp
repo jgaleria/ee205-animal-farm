@@ -24,7 +24,7 @@ using namespace std;
 //Protected Members of a Cat
 void Cat::zeroOutMemberData() {
     memset( name, 0, MAX_NAME );
-    gender =  UNKNOWN_GENDER ;
+    gender =  Gender::UNKNOWN_GENDER ;
     breed  =  UNKNOWN_BREED  ;
     isCatFixed = false ;
     weight = UNKNOWN_WEIGHT ;
@@ -143,7 +143,7 @@ bool Cat::validateName( const char *newName ) {
 
 //Check Gender
 bool Cat::validateGender(const Gender newGender ) {
-    if( newGender == UNKNOWN_GENDER ) {
+    if( newGender == Gender::UNKNOWN_GENDER ) {
         throw invalid_argument( PROGRAM_NAME ": Gender must be known");
     }
     return true;
@@ -181,7 +181,7 @@ void Cat::setWeight(Weight newWeight) {
 //Setting gender
 void Cat::setGender(Gender newGender) {
     // Can't change male or female
-    if( gender != UNKNOWN_GENDER ){
+    if( gender != Gender::UNKNOWN_GENDER ){
         throw logic_error(PROGRAM_NAME ": You are unable to change the gender");
     }
 
