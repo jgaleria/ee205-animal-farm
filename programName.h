@@ -25,3 +25,4 @@ typedef int   NumCats;
 
 //Not valid weight
 //const Weight UNKNOWN_WEIGHT = -1;
+
