@@ -15,5 +15,3 @@
 
 //Insert cat
 extern bool addCat( Cat* newCat );
-
-//bool addCat ( const char name[], const enum Gender gender, const enum Breed breed, bool isFixed, Weight weight, enum Color collar1, enum Color collar2, unsigned long long license );

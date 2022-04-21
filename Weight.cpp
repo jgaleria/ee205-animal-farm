@@ -156,6 +156,7 @@ void Weight::dump() const noexcept {
 }
 
 //Operators
+std::ostream& operator<<( std::ostream& lhs_stream,Weight::UnitOfWeight rhs_UnitOfWeight );
 std::ostream& operator<<( std::ostream& lhs_stream
         ,const Weight::UnitOfWeight rhs_UnitOfWeight ) {
     switch( rhs_UnitOfWeight ) {

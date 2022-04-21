@@ -26,8 +26,3 @@ extern const char* breedName( enum Breed breed );
 
 //Return string for color name
 extern const char* colorName( Color color );
-//bool printCat( int index );
-//
-//void printAllCats();
-//
-//int findCat( char name[] );

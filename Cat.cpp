@@ -18,7 +18,6 @@
 
 #include "Cat.h"
 #include "reportCats.h"
-#include "Weight.h"
 
 
 using namespace std;
@@ -109,7 +108,7 @@ bool Cat::print() const noexcept {
     FORMAT_LINE( "Cat", "breed" )       << breedName( getBreed() )   << endl;
     FORMAT_LINE( "Cat", "color" )       << colorName( getColor() )   << endl;
     FORMAT_LINE( "Cat", "isFixed" )     << isFixed()   << endl;
-    //FORMAT_LINE( "Cat", "weight" )      << getWeight() << endl;
+   //FORMAT_LINE( "Cat", "weight" )      << getWeight() << endl;
 
     return true;
 }

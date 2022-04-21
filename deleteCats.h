@@ -17,8 +17,4 @@ extern bool deleteCat( Cat* deleteThisCat );
 //Delete all cats
 extern bool deleteAllCats();
 
-//void deleteAllCats();
-//
-//bool deleteCat( int index );
-
 
