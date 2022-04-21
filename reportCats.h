@@ -16,7 +16,7 @@
 extern bool printAllCats();
 
 //Find cat
-extern Cat* findCatByName( const char* name );
+extern Cat* findCatByName( const std::string name );
 
 //Return string for gender name
 extern const char* genderName( Gender gender );

@@ -43,15 +43,19 @@ bool printAllCats() {
 }
 
 //Find a cat
-Cat* findCatByName( const char* name) {
+Cat* findCatByName( const std::string& name) {
     assert( Cat().validateName(name));
 
     // assert( validateDatabase() ) ;
 
     for(Cat* iCat = catDatabaseHeadPointer; iCat!= nullptr; iCat = iCat-> next ) {
-        if(strcmp(name, iCat->getName()) == 0) {
+        if( iCat->getName() == name )  {
             return iCat;
         }
+
+//        if(strcmp(name, iCat->getName()) == 0) {
+//            return iCat;
+//        }
     }
 
     // assert( validateDatabase() ) ;

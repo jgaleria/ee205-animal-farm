@@ -51,10 +51,10 @@ extern bool validateDatabase() {
             return false;
         }
 
-        Cat* foundCat = findCatByName( iCat-> getName() );
-        if( foundCat != iCat ) {
-            cout << PROGRAM_NAME ": There was a duplicate cat name [" << iCat->getName() << "]" << endl ;
-        }
+//        Cat* foundCat = findCatByName( iCat-> getName() );
+//        if( foundCat != iCat ) {
+//            cout << PROGRAM_NAME ": There was a duplicate cat name [" << iCat->getName() << "]" << endl ;
+//        }
 
         numValidCats++;
     }

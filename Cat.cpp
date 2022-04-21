@@ -24,7 +24,8 @@ using namespace std;
 
 //Protected Members of a Cat
 void Cat::zeroOutMemberData() {
-    memset( name, 0, MAX_NAME );
+    //memset( name, 0, MAX_NAME );
+    name   = "null";
     gender =  Gender::UNKNOWN_GENDER ;
     breed  =  UNKNOWN_BREED  ;
     color  =  Color::UNKNOWN_COLOR ;
@@ -40,7 +41,7 @@ Cat::Cat() {
 }
 
 //Constructor with all fields valid for cat
-Cat::Cat(const char *newName, const Gender newGender, const Breed newBreed, const Color newColor, const Weight newWeight) : Cat() {
+Cat::Cat( std::string newName, const Gender newGender, const Breed newBreed, const Color newColor, const Weight newWeight) : Cat() {
     setName( newName );
     setGender( newGender );
     setColor( newColor );
@@ -56,15 +57,16 @@ Cat::~Cat() {
 
 
 //Getter for name
-const char *Cat::getName() const noexcept {
+const std::string Cat::getName() const noexcept {
     return name;
 }
 
 //Setter for name
-void Cat::setName( const char *newName) {
-    //validateName( newName );
-    memset( name, 0, MAX_NAME );
-    strcpy( name, newName );
+void Cat::setName( const std::string newName) {
+    validateName( newName );
+    //memset( name, 0, MAX_NAME )
+    name = "Unknown name";
+    name = newName;
 }
 
 //Getter for gender
@@ -135,15 +137,15 @@ bool Cat::validate() const noexcept {
 }
 
 //Check Name
-bool Cat::validateName( const char *newName ) {
+bool Cat::validateName( const std::string newName ) {
 
     //Check if name length is valid
-    if( strlen(newName ) <= 0 || strlen( newName) >= MAX_NAME ){
+    if( newName.length() <= 0 || newName.length() >= MAX_NAME ){
         throw length_error( PROGRAM_NAME ": Input name length is invalid");
     }
 
     //Check if name is empty
-    if( newName == nullptr ) {
+    if( newName == "null" ) {
         throw invalid_argument( PROGRAM_NAME ": Input name must not be NULL");
     }
 

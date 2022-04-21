@@ -23,7 +23,7 @@ class Cat {
 
 //protected members
 protected:
-    char        name[MAX_NAME];
+    std::string name;
     enum Gender gender;
     enum Breed  breed;
     enum Color  color;
@@ -44,7 +44,7 @@ public:
     Cat();
 
     //Create cat with all the fields
-    Cat( const char *newName, const Gender newGender, const Breed newBreed, const Color newColor, const Weight newWeight );
+    Cat( std::string newName, const Gender newGender, const Breed newBreed, const Color newColor, const Weight newWeight );
 
     //Zero out member data
     virtual ~Cat();
@@ -52,8 +52,8 @@ public:
 //Getters and Setters - Public
 public:
     //For name
-    const char *getName() const noexcept;
-    void setName ( const char* newName );
+    const std::string getName() const noexcept;
+    void setName ( const std::string newName );
 
     //For gender
     Gender getGender() const noexcept;
@@ -97,7 +97,7 @@ public:
 //Static Public Methods
 public:
     //Validation checks
-    static bool validateName( const char* newName );
+    static bool validateName( const std::string newName );
     static bool validateGender( const Gender newGender );
     static bool validateBreed( const Breed newBreed );
     static bool validateWeight( const Weight newWeight );
