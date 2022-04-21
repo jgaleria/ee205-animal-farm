@@ -13,9 +13,9 @@
 #include <cassert>
 
 //Weight conversions
-const float Weight::UNKNOWN_WEIGHT   = -1;
-const float Weight::KILOS_IN_A_POUND = 0.453592;
-const float Weight::SLUGS_IN_A_POUND = 0.031081;
+const t_weight Weight::UNKNOWN_WEIGHT   = -1;
+const t_weight Weight::KILOS_IN_A_POUND = 0.453592;
+const t_weight Weight::SLUGS_IN_A_POUND = 0.031081;
 
 //Unit labels
 const std::string Weight::POUND_LABEL = "Pound";
@@ -36,7 +36,7 @@ Weight::Weight() noexcept {
 };
 
 // Only adding weight
-Weight::Weight( float newWeight ) {
+Weight::Weight( t_weight newWeight ) {
     bIsKnown = false;
     bHasMax  = false;
     unitOfWeight = POUND;
@@ -54,7 +54,7 @@ Weight::Weight( Weight::UnitOfWeight newUnitOfWeight ) noexcept {
 }
 
 // Defaulting weight and unit
-Weight::Weight( float newWeight, Weight::UnitOfWeight newUnitOfWeight ) {
+Weight::Weight( t_weight newWeight, Weight::UnitOfWeight newUnitOfWeight ) {
     bIsKnown = true;
     bHasMax  = false;
     unitOfWeight = newUnitOfWeight;
@@ -63,7 +63,7 @@ Weight::Weight( float newWeight, Weight::UnitOfWeight newUnitOfWeight ) {
 }
 
 // Defaulting weight and max weight
-Weight::Weight( float newWeight, float newMaxWeight ) {
+Weight::Weight( t_weight newWeight, t_weight newMaxWeight ) {
     bIsKnown = true;
     bHasMax  = true;
     unitOfWeight = POUND;
@@ -72,7 +72,7 @@ Weight::Weight( float newWeight, float newMaxWeight ) {
 }
 
 //Defaulting unit and max weight
-Weight::Weight( Weight::UnitOfWeight newUnitOfWeight, float newMaxWeight ) {
+Weight::Weight( Weight::UnitOfWeight newUnitOfWeight, t_weight newMaxWeight ) {
     bIsKnown = false;
     bHasMax  = true;
     unitOfWeight = newUnitOfWeight;
@@ -81,7 +81,7 @@ Weight::Weight( Weight::UnitOfWeight newUnitOfWeight, float newMaxWeight ) {
 }
 
 //Defaulting weight, unit, and max
-Weight::Weight( float newWeight, Weight::UnitOfWeight newUnitOfWeight, float newMaxWeight ) {
+Weight::Weight( t_weight newWeight, Weight::UnitOfWeight newUnitOfWeight, t_weight newMaxWeight ) {
     bIsKnown = true;
     bHasMax  = true;
     unitOfWeight = newUnitOfWeight;
@@ -100,18 +100,18 @@ bool Weight::hasMaxWeight() const noexcept {
     return bHasMax;
 }
 
-float Weight::getWeight() const noexcept {
+t_weight Weight::getWeight() const noexcept {
     assert( isWeightValid( weight ));
     return weight;
 }
 
-float Weight::getWeight( Weight::UnitOfWeight weightUnits ) const noexcept {
+t_weight Weight::getWeight( Weight::UnitOfWeight weightUnits ) const noexcept {
     assert( isWeightValid( weight ));
-    float fullWeight = convertWeight( weight, unitOfWeight, weightUnits );
+    t_weight fullWeight = convertWeight( weight, unitOfWeight, weightUnits );
     return fullWeight;
 }
 
-float Weight::getMaxWeight() const noexcept {
+t_weight Weight::getMaxWeight() const noexcept {
     return MaxWeight;
 }
 
@@ -119,11 +119,11 @@ Weight::UnitOfWeight Weight::getWeightUnit() const noexcept {
     return unitOfWeight;
 }
 
-void Weight::setWeight( float newWeight ) {
+void Weight::setWeight( t_weight newWeight ) {
     weight = newWeight;
 }
 
-void Weight::setWeight( float newWeight, Weight::UnitOfWeight weightUnits ) {
+void Weight::setWeight( t_weight newWeight, Weight::UnitOfWeight weightUnits ) {
     weight = newWeight;
     unitOfWeight = weightUnits;
 }
@@ -131,7 +131,7 @@ void Weight::setWeight( float newWeight, Weight::UnitOfWeight weightUnits ) {
 ///////////////////////
 /// Checks and methods
 ///////////////////////
-bool Weight::isWeightValid( float checkWeight ) const noexcept {
+bool Weight::isWeightValid( t_weight checkWeight ) const noexcept {
     assert( (checkWeight > 0 ) || checkWeight == Weight::UNKNOWN_WEIGHT );
     if( bHasMax ) {
         assert(checkWeight <= MaxWeight);
@@ -169,8 +169,8 @@ std::ostream& operator<<( std::ostream& lhs_stream
 
 //Override equals to
 bool Weight::operator==(const Weight &rhs_Weight) const {
-    float leftWeight = convertWeight( weight, unitOfWeight, POUND );
-    float rightWeight = convertWeight( rhs_Weight.weight, rhs_Weight.unitOfWeight, POUND);
+    t_weight leftWeight = convertWeight( weight, unitOfWeight, POUND );
+    t_weight rightWeight = convertWeight( rhs_Weight.weight, rhs_Weight.unitOfWeight, POUND);
     if( leftWeight == rightWeight ) {
         return true;
     }
@@ -179,41 +179,41 @@ bool Weight::operator==(const Weight &rhs_Weight) const {
 
 //Override less than
 bool Weight::operator<( const Weight &rhs_Weight) const {
-    float leftWeight = convertWeight( weight, unitOfWeight, POUND);
-    float rightWeight = convertWeight( rhs_Weight.weight, rhs_Weight.unitOfWeight, POUND );
+    t_weight leftWeight = convertWeight( weight, unitOfWeight, POUND);
+    t_weight rightWeight = convertWeight( rhs_Weight.weight, rhs_Weight.unitOfWeight, POUND );
     if( leftWeight < rightWeight ) {
         return true;
     }
     return false;
 }
 
-Weight &Weight::operator+=(float rhs_addToWeight) {
+Weight &Weight::operator+=(t_weight rhs_addToWeight) {
     weight += rhs_addToWeight;
     return *this;
 }
 
 //Conversions
-float Weight::fromKilogramToPound(float kilogram) noexcept {
-    float pound = kilogram / KILOS_IN_A_POUND;
+t_weight Weight::fromKilogramToPound(t_weight kilogram) noexcept {
+    t_weight pound = kilogram / KILOS_IN_A_POUND;
     return pound;
 }
 
-float Weight::fromPoundToKilogram(float pound) noexcept {
-    float kilogram = pound * KILOS_IN_A_POUND;
+t_weight Weight::fromPoundToKilogram(t_weight pound) noexcept {
+    t_weight kilogram = pound * KILOS_IN_A_POUND;
     return kilogram;
 }
 
-float Weight::fromSlugToPound(float slug) noexcept {
-    float pound = slug / SLUGS_IN_A_POUND;
+t_weight Weight::fromSlugToPound(t_weight slug) noexcept {
+    t_weight pound = slug / SLUGS_IN_A_POUND;
     return pound;
 }
 
-float Weight::fromPoundToSlug(float pound) noexcept {
-    float slugs = pound * SLUGS_IN_A_POUND;
+t_weight Weight::fromPoundToSlug(t_weight pound) noexcept {
+    t_weight slugs = pound * SLUGS_IN_A_POUND;
     return slugs;
 }
 
-float Weight::convertWeight(float fromWeight, Weight::UnitOfWeight fromUnit, Weight::UnitOfWeight toUnit) noexcept {
+t_weight Weight::convertWeight(t_weight fromWeight, Weight::UnitOfWeight fromUnit, Weight::UnitOfWeight toUnit) noexcept {
     switch( fromUnit ){
         case POUND:
             switch( toUnit ){
@@ -231,7 +231,7 @@ float Weight::convertWeight(float fromWeight, Weight::UnitOfWeight fromUnit, Wei
                 case KILO:
                     return fromWeight;
                 case SLUG:
-                    float pound = fromKilogramToPound( fromWeight );
+                    t_weight pound = fromKilogramToPound( fromWeight );
                     return fromPoundToSlug( pound );
             }
         case SLUG:
@@ -241,7 +241,7 @@ float Weight::convertWeight(float fromWeight, Weight::UnitOfWeight fromUnit, Wei
                 case POUND:
                     return fromSlugToPound( fromWeight );
                 case KILO:
-                    float pound = fromSlugToPound( fromWeight );
+                    t_weight pound = fromSlugToPound( fromWeight );
                     return fromPoundToKilogram( pound );
             }
     }

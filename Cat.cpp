@@ -18,7 +18,9 @@
 
 #include "Cat.h"
 #include "reportCats.h"
+#include "Weight.h"
 
+//const Weight::t_weight Cat::MAX_WEIGHT = 40;
 
 using namespace std;
 
