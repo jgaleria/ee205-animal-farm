@@ -9,9 +9,32 @@
 /// @date   21_Apr_2022
 ///////////////////////////////////////////////////////////////////////////////
 #pragma once
+#include "Node.h"
+#include "List.h"
 
-class SinglyLinkedList {
+class SinglyLinkedList : public List{
+    //Public Constructor
+public:
+    //New singly Linked list
+    SinglyLinkedList();
 
+    //Public Methods
+public:
+    //Insert new node at beginning of list
+    void push_front( Node* newNode);
+
+    //Remove and return the first node
+    Node* pop_front() noexcept override;
+
+    //Insert newNode after currentNode
+    void insert_after( Node* currentNode, Node* newNode );
+
+    //Output contents of container
+    void dump() const noexcept override;
+
+    //Validate
+    bool validate() const noexcept override;
 };
+
 
 
