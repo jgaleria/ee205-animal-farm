@@ -44,6 +44,7 @@ public:
 
     ///Static Methods
 public:
+    //Gets next node in the list
     static Node* get_next( const Node* currentNode );
 
     ///Abstract Methods
