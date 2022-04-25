@@ -102,6 +102,11 @@ bool Animal::validateSpecies(const std::string &checkSpecies) noexcept {
     return true;
 }
 
+//Print meow
+std::string Animal::speak() const noexcept {
+    return "Meow";
+}
+
 void Animal::dump() const noexcept {
     PRINT_HEADING_FOR_DUMP ;
 
