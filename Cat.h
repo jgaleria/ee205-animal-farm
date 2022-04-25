@@ -12,97 +12,65 @@
 #pragma once
 
 #include "programName.h"
-#include "Gender.h"
-#include "Color.h"
-#include "Weight.h"
+#include "Mammal.h"
 
 #define MAX_NAME (50)
 
 //Cat class
-class Cat {
+class Cat : public Mammal {
+    //Constants
+public:
+    static const std::string SPECIES_NAME;
+    static const Weight::t_weight MAX_WEIGHT;
 
-//protected members
+    //Member variables
 protected:
     std::string name;
-    enum Gender gender;
-    enum Breed  breed;
-    enum Color  color;
-    bool        isCatFixed;
-    Weight      weight;
+    bool isCatFixed;
 
-//Public members
+    //Constructors
 public:
-    Cat*        next;
+    explicit Cat( const std::string& newName ) : Mammal( MAX_WEIGHT, SPECIES_NAME ) {
+        if( !validateName( newName )) {
+            throw std::out_of_range("Cats must have a name");
+        }
+        name = newName;
+        isCatFixed = false;
 
-//Private methods
-private:
-    void zeroOutMemberData();
+        Cat::validate();
+    }
 
-//Constructors
+    //All member variables
+    Cat( const std::string newName,
+         const Color       newColor,
+         const bool        newIsFixed,
+         const Gender      newGender,
+         const Weight::t_weight newWeight
+         ) : Mammal( newColor, newGender, newWeight, MAX_WEIGHT, SPECIES_NAME ) {
+        if( !validateName( newName) ) {
+            throw std::out_of_range( "Cats must have a name" );
+        }
+        name = newName;
+        isCatFixed = newIsFixed;
+
+        Cat::validate();
+    }
+
+    //Getters and setters
 public:
-    //Create cat with default values
-    Cat();
+    std::string getName() const noexcept;
+    void setName( const std::string& newName );
 
-    //Create cat with all the fields
-    Cat( std::string newName, const Gender newGender, const Breed newBreed, const Color newColor, const Weight newWeight );
-
-    //Zero out member data
-    virtual ~Cat();
-
-//Getters and Setters - Public
-public:
-    //For name
-    const std::string getName() const noexcept;
-    void setName ( const std::string newName );
-
-    //For gender
-    Gender getGender() const noexcept;
-
-    //For breed
-    Breed getBreed() const noexcept;
-
-    //For color
-    Color getColor() const noexcept;
-
-    //For fixed
     bool isFixed() const noexcept;
-    bool fixCat() noexcept;
+    void fixCat() noexcept;
 
-    //For weight
-    Weight getWeight() const noexcept;
-    void setWeight(Weight newWeight);
-
-//Protected methods
-protected:
+    //Public methods
 public:
-    //Set gender
-    void setGender(Gender newGender);
+    std::string speak() const noexcept override;
+    void dump() const noexcept override;
+    bool validate() const noexcept override;
 
-    //Set breed
-    void setBreed(Breed newBreed);
-
-    //Set color
-    void setColor(Color newColor);
-
-//Public methods
+    //Static public methods
 public:
-    //Print cat
-    bool print() const noexcept;
-
-    void setIsCatFixed(bool isCatFixed);
-
-    //Validate cat
-    bool validate() const noexcept;
-
-//Static Public Methods
-public:
-    //Validation checks
-    static bool validateName( const std::string newName );
-    static bool validateGender( const Gender newGender );
-    static bool validateBreed( const Breed newBreed );
-    static bool validateWeight( const Weight newWeight );
-    static bool validateColor( const Color newColor );
-
-    static bool isWeightValid(Weight weight);
+    static bool validateName() const std::string& newName);
 };
-
