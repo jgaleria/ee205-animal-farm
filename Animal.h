@@ -46,6 +46,18 @@ public:
 
     //Getters and setters
 public:
+    std::string getKingdom() const noexcept;
+    std::string getClassification() const noexcept;
+    std::string getSpecies() const noexcept;
+
+    Gender getGender() const noexcept;
+
+    Weight::t_weight getWeight() const noexcept;
+
+    //Setter for weight
+    void setWeight( const Weight::t_weight newWeight );
+
+public:
     //Static methods
     static bool validateClassification( const std::string& checkClassification ) noexcept;
     static bool validateSpecies( const std::string& checkSpecies ) noexcept;

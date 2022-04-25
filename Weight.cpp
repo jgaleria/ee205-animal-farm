@@ -13,9 +13,9 @@
 #include <cassert>
 
 //Weight conversions
-const t_weight Weight::UNKNOWN_WEIGHT   = -1;
-const t_weight Weight::KILOS_IN_A_POUND = 0.453592;
-const t_weight Weight::SLUGS_IN_A_POUND = 0.031081;
+const Weight::t_weight Weight::UNKNOWN_WEIGHT   = -1;
+const Weight::t_weight Weight::KILOS_IN_A_POUND = 0.453592;
+const Weight::t_weight Weight::SLUGS_IN_A_POUND = 0.031081;
 
 //Unit labels
 const std::string Weight::POUND_LABEL = "Pound";
@@ -100,18 +100,18 @@ bool Weight::hasMaxWeight() const noexcept {
     return bHasMax;
 }
 
-t_weight Weight::getWeight() const noexcept {
+Weight::t_weight Weight::getWeight() const noexcept {
     assert( isWeightValid( weight ));
     return weight;
 }
 
-t_weight Weight::getWeight( Weight::UnitOfWeight weightUnits ) const noexcept {
+Weight::t_weight Weight::getWeight( Weight::UnitOfWeight weightUnits ) const noexcept {
     assert( isWeightValid( weight ));
     t_weight fullWeight = convertWeight( weight, unitOfWeight, weightUnits );
     return fullWeight;
 }
 
-t_weight Weight::getMaxWeight() const noexcept {
+Weight::t_weight Weight::getMaxWeight() const noexcept {
     return MaxWeight;
 }
 
@@ -193,27 +193,27 @@ Weight &Weight::operator+=(t_weight rhs_addToWeight) {
 }
 
 //Conversions
-t_weight Weight::fromKilogramToPound(t_weight kilogram) noexcept {
+Weight::t_weight Weight::fromKilogramToPound(t_weight kilogram) noexcept {
     t_weight pound = kilogram / KILOS_IN_A_POUND;
     return pound;
 }
 
-t_weight Weight::fromPoundToKilogram(t_weight pound) noexcept {
+Weight::t_weight Weight::fromPoundToKilogram(t_weight pound) noexcept {
     t_weight kilogram = pound * KILOS_IN_A_POUND;
     return kilogram;
 }
 
-t_weight Weight::fromSlugToPound(t_weight slug) noexcept {
+Weight::t_weight Weight::fromSlugToPound(t_weight slug) noexcept {
     t_weight pound = slug / SLUGS_IN_A_POUND;
     return pound;
 }
 
-t_weight Weight::fromPoundToSlug(t_weight pound) noexcept {
+Weight::t_weight Weight::fromPoundToSlug(t_weight pound) noexcept {
     t_weight slugs = pound * SLUGS_IN_A_POUND;
     return slugs;
 }
 
-t_weight Weight::convertWeight(t_weight fromWeight, Weight::UnitOfWeight fromUnit, Weight::UnitOfWeight toUnit) noexcept {
+Weight::t_weight Weight::convertWeight(t_weight fromWeight, Weight::UnitOfWeight fromUnit, Weight::UnitOfWeight toUnit) noexcept {
     switch( fromUnit ){
         case POUND:
             switch( toUnit ){
