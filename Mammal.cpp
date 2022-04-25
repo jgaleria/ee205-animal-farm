@@ -9,3 +9,18 @@
 /// @date   21_Apr_2022
 ///////////////////////////////////////////////////////////////////////////////
 #include "Mammal.h"
+#include "programName.h"
+#include <string>
+#include <cassert>
+
+using namespace std;
+
+const std::string Mammal::MAMMAL_NAME = "Mammilian";
+
+void Mammal::dump() const noexcept {
+    assert( validate() );
+    Animal::dump();
+
+    FORMAT_LINE_FOR_DUMP( "Mammal", "color" ) << color << endl;
+}
+
