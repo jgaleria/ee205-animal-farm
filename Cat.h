@@ -72,5 +72,5 @@ public:
 
     //Static public methods
 public:
-    static bool validateName() const std::string& newName);
+    static bool validateName(const std::string& newName) ;
 };
