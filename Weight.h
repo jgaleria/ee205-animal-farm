@@ -12,12 +12,13 @@
 
 #include <string>
 
-typedef float t_weight;
-
 class Weight {
 public:
     //Enum and consts
     enum UnitOfWeight { POUND, KILO, SLUG };
+
+    //Typedef
+    typedef float t_weight;
 
     //Weight conversions
     static const t_weight UNKNOWN_WEIGHT;
