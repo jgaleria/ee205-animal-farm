@@ -9,9 +9,9 @@
 /// @date   20_Mar_2022
 ///////////////////////////////////////////////////////////////////////////////
 
-#pragma once
-#include "catDatabase.h"
-#include "Cat.h"
-
-//Insert cat
-extern bool addCat( Cat* newCat );
+//#pragma once
+//#include "catDatabase.h"
+//#include "Cat.h"
+//
+////Insert cat
+//extern bool addCat( Cat* newCat );

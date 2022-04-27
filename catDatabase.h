@@ -8,24 +8,25 @@
 /// @author Joshua Galeria <jgaleria@hawaii.edu>
 /// @date   20_Mar_2022
 ///////////////////////////////////////////////////////////////////////////////
-#pragma once
-
-//Include
-#include <cstddef>
-#include "Cat.h"
-
-//Head pointer
-extern Cat* catDatabaseHeadPointer;
-
-// extern
-extern NumCats numberOfCats;
-
-//Initialize cat database
-extern void initializeDatabase();
-
-//Validate database
-extern bool validateDatabase();
-
-//Check if cat is in database
-extern bool isCatInDatabase( const Cat* aCat );
-
+//#pragma once
+//
+////Include
+//#include <cstddef>
+//#include "Cat.h"
+//#include "Node.h"
+//
+////Head pointer
+//extern Cat* catDatabaseHeadPointer;
+//
+//// extern
+//extern NumCats numberOfCats;
+//
+////Initialize cat database
+//extern void initializeDatabase();
+//
+////Validate database
+//extern bool validateDatabase();
+//
+////Check if cat is in database
+//extern bool isCatInDatabase( const Cat* aCat );
+//

@@ -8,13 +8,13 @@
 /// @author Joshua Galeria <jgaleria@hawaii.edu>
 /// @date   20_Mar_2022
 ///////////////////////////////////////////////////////////////////////////////
-#pragma once
-#include "Cat.h"
-
-//Delete specific cat
-extern bool deleteCat( Cat* deleteThisCat );
-
-//Delete all cats
-extern bool deleteAllCats();
+//#pragma once
+//#include "Cat.h"
+//
+////Delete specific cat
+//extern bool deleteCat( Cat* deleteThisCat );
+//
+////Delete all cats
+//extern bool deleteAllCats();
 
 

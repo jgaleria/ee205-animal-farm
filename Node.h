@@ -48,6 +48,7 @@ protected:
             std::cout << PROGRAM_NAME << "There's a recursive loop, next is pointing to itself";
             return false;
         }
+        return false;
     }
 
     //Compare if left is greater than right

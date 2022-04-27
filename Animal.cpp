@@ -121,7 +121,7 @@ void Animal::dump() const noexcept {
 }
 
 bool Animal::validate() const noexcept {
-    assert( Node::validate() );
+    //assert( Node::validate() );
 
     assert( !getKingdom().empty() );
     assert(validateClassification(getClassification()));
